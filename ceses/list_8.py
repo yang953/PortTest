@@ -19,20 +19,27 @@ def towSum(nums,target):
     print(list(set(index_list)))
 
 
-# def tow_num(num_list,target):
-#     # 获取列表中所有数字的数组下标，并与数字成字典
-#     index_1 = [[index_1,value_1] for index_1,value_1 in enumerate(num_list)]
-#     list_sum = []
-#     for i in index_1:
-#         for j in index_1:
-#             if j!=i :
-#                 if i[0][1] + j[0][1] == target:
-#                     print(i,j)
-#
-#
-#             # print(i,j)
-#
-#
-#
+def tow_num(num_list,target):
+    # 获取列表中所有数字的数组下标，并与数字成数组
+    index_1 = [[index_1,value_1] for index_1,value_1 in enumerate(num_list)]
+    list_sum = []
+    list_index = []
+    for i in range(len(index_1)):
+        for j in range(i+1,len(index_1)):
+            if index_1[i][1] + index_1[j][1] == target :
+                if index_1[i]  not in list_sum:
+                    list_sum.append(index_1[i])
+                    if index_1[j] not in list_sum:
+                        list_sum.append(index_1[j])
+                    # print(list_sum)
+    for x in list_sum:
+        list_index.append(x[0])
+
+    # print(index_1[3] in list_sum)
+    print(list_sum)
+    print(index_1)
+    print(list_index)
+
 if __name__=="__main__":
-    towSum([1,2,3,6,12,52,3,12,4,5],9)
+    # towSum([1,2,3,6,12,52,3,12,4,5],9)
+    tow_num([1,2,3,6,12,52,3,12,4,5],9)
