@@ -23,7 +23,7 @@ def tow_num(num_list,target):
     # 获取列表中所有数字的数组下标，并与数字成数组
     index_1 = [[index_1,value_1] for index_1,value_1 in enumerate(num_list)]
     list_sum = []
-    list_index = []
+    # list_index = []
     for i in range(len(index_1)):
         for j in range(i+1,len(index_1)):
             if index_1[i][1] + index_1[j][1] == target :
@@ -32,12 +32,13 @@ def tow_num(num_list,target):
                     if index_1[j] not in list_sum:
                         list_sum.append(index_1[j])
                     # print(list_sum)
-    for x in list_sum:
-        list_index.append(x[0])
-
+    # for x in list_sum:
+    #     list_index.append(x[0])
+    list_index = [x[0] for x in list_sum]
+    c = [list_index[i:i+2] for i in range(0,len(list_index),2)]
     # print(index_1[3] in list_sum)
-    print(list_sum)
-    print(index_1)
+    # print(list_sum)
+    print(c)
     print(list_index)
 
 if __name__=="__main__":
